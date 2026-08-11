@@ -9,7 +9,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     /*
@@ -18,17 +18,17 @@
      */
 
     :root {
-      --porto: #123b4a;
-      --porto-deep: #0d2d39;
-      --porto-soft: #dfe9e9;
-      --ivory: #f6f3ed;
-      --ink: #1f2d31;
-      --muted: #6e7b7b;
-      --line: #dbe1de;
-      --copper: #b97950;
-      --success: #23725d;
+      --porto: #1459B8;
+      --porto-deep: #0C3D86;
+      --porto-soft: #E6F0FF;
+      --ivory: #F4F8FD;
+      --ink: #14263D;
+      --muted: #64758C;
+      --line: #D9E5F2;
+      --copper: #2D6DD3;
+      --success: #1F7A61;
       --white: #ffffff;
-      --shadow: 0 24px 70px rgba(18, 59, 74, 0.13);
+      --shadow: 0 24px 70px rgba(20, 89, 184, 0.12);
       --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     }
 
@@ -229,7 +229,7 @@
 
     .rail-copy h1 {
       margin: 0;
-      font-family: "DM Serif Display", serif;
+      font-family: "Plus Jakarta Sans", sans-serif;
       font-weight: 400;
       font-size: clamp(45px, 5vw, 68px);
       line-height: 0.98;
@@ -267,7 +267,7 @@
       max-width: 245px;
       margin: 0;
       color: rgba(255, 255, 255, 0.68);
-      font-family: "DM Serif Display", serif;
+      font-family: "Plus Jakarta Sans", sans-serif;
       font-size: 15px;
       line-height: 1.36;
     }
@@ -308,7 +308,7 @@
     .section-intro h2 {
       margin: 0;
       color: var(--porto-deep);
-      font-family: "DM Serif Display", serif;
+      font-family: "Plus Jakarta Sans", sans-serif;
       font-size: clamp(32px, 4vw, 44px);
       line-height: 1;
       font-weight: 400;
@@ -438,10 +438,10 @@
 
     .amount-block strong {
       color: var(--porto);
-      font-family: "DM Serif Display", serif;
+      font-family: "Plus Jakarta Sans", sans-serif;
       font-size: 34px;
       line-height: 0.98;
-      font-weight: 400;
+      font-weight: 700;
       letter-spacing: -0.045em;
     }
 
@@ -559,17 +559,21 @@
 
     .primary-action {
       width: 100%;
-      min-height: 51px;
+      min-height: 56px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-top: 18px;
-      padding: 0 17px 0 19px;
+      padding: 0 16px 0 20px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
       cursor: pointer;
       color: #fff;
-      background: var(--porto);
+      background: linear-gradient(180deg, #2D73D6 0%, #1459B8 100%);
+      box-shadow: 0 6px 14px rgba(20, 89, 184, 0.18);
       font-size: 12px;
       font-weight: 800;
+      letter-spacing: -0.01em;
       transition: background 180ms var(--ease-out), transform 160ms var(--ease-out), box-shadow 180ms var(--ease-out);
     }
 
@@ -580,20 +584,26 @@
     }
 
     .primary-action svg {
-      width: 18px;
-      height: 18px;
-      flex: 0 0 18px;
+      width: 19px;
+      height: 19px;
+      flex: 0 0 19px;
       display: block;
+      opacity: 0.96;
     }
 
     .primary-action:hover:not(:disabled) {
-      transform: translateY(-2px);
-      background: var(--porto-deep);
-      box-shadow: 0 8px 20px rgba(18, 59, 74, 0.18);
+      transform: translateY(-1px);
+      background: linear-gradient(180deg, #3B83E5 0%, #0C3D86 100%);
+      box-shadow: 0 9px 20px rgba(20, 89, 184, 0.24);
     }
 
-    .primary-action:active:not(:disabled) { transform: scale(0.98); }
-    .primary-action:disabled { cursor: not-allowed; color: rgba(255, 255, 255, 0.6); background: #abb9b8; }
+    .primary-action:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px #DCEBFF, 0 7px 18px rgba(20, 89, 184, 0.22);
+    }
+
+    .primary-action:active:not(:disabled) { transform: scale(0.985); }
+    .primary-action:disabled { cursor: not-allowed; color: #F7FAFE; background: #B8C6D6; border-color: transparent; box-shadow: none; }
 
     .action-disclaimer {
       justify-content: center;
@@ -906,7 +916,7 @@
       .method-heading { gap: 9px; }
       .method-icon { width: 34px; height: 34px; flex-basis: 34px; }
       .method-selected { margin-top: 7px; font-size: 8px; }
-      .primary-action { font-size: 12px; }
+      .primary-action { min-height: 54px; padding: 0 15px 0 17px; font-size: 11px; }
       .primary-action svg { width: 16px; height: 16px; flex-basis: 16px; }
       .action-disclaimer { font-size: 9px; }
       .copy-button { font-size: 11px; }
@@ -915,19 +925,19 @@
     }
 
     /* Checkout refinement: the payment action is the visual anchor, not a landing-page hero. */
-    body { background: #edf1f2; }
-    .portal-shell { padding: 32px; background: #edf1f2; }
+    body { background: #EEF5FD; }
+    .portal-shell { padding: 32px; background: #EEF5FD; }
     .portal-shell::before { display: none; }
     .portal-frame { width: min(980px, 100%); min-height: auto; display: block; border-radius: 18px; box-shadow: 0 20px 55px rgba(18, 59, 74, 0.12); }
     .editorial-rail { display: none; }
     .mobile-header { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 22px 36px; color: var(--porto); background: #fff; border-bottom: 1px solid #e1e8e7; }
-    .mobile-header .brand-mark { border-color: #cbdad7; background: #f2f7f6; }
+    .mobile-header .brand-mark { border-color: #C7DBF7; background: #F1F6FF; }
     .mobile-header .brand-name span { color: var(--muted); opacity: 1; }
-    .mobile-header .secure-pill { color: var(--success); border-color: #c9ded6; background: #f1f8f4; }
-    .payment-column { background: #f5f7f7; }
+    .mobile-header .secure-pill { color: #1F6A9C; border-color: #C6DBF2; background: #F0F7FF; }
+    .payment-column { background: #F4F8FD; }
     .payment-content { width: min(700px, 100%); padding: 42px 36px 32px; }
     .section-intro { margin-bottom: 25px; }
-    .section-intro h2 { font-size: clamp(32px, 4vw, 40px); }
+    .section-intro h2 { font-size: clamp(32px, 4vw, 40px); font-weight: 700; letter-spacing: -0.055em; }
     .date-stamp { padding: 8px 12px; border: 1px solid #dbe5e2; background: #fff; text-align: center; }
     .summary-panel, .method-panel { border-radius: 14px; border-color: #d8e1df; box-shadow: 0 4px 16px rgba(18, 59, 74, 0.045); }
     .summary-panel::before { border-radius: 14px 0 0 14px; }
@@ -939,10 +949,10 @@
       .portal-shell { padding: 0; background: #fff; }
       .portal-frame { width: 100%; border-radius: 0; box-shadow: none; }
       .mobile-header { padding: 15px 18px; }
-      .payment-column { background: #f5f7f7; }
+      .payment-column { background: #F4F8FD; }
       .payment-content { width: 100%; padding: 28px 16px 22px; }
       .section-intro { margin-bottom: 20px; }
-      .section-intro h2 { font-size: clamp(30px, 8.5vw, 37px); }
+      .section-intro h2 { font-size: clamp(30px, 8.5vw, 37px); font-weight: 700; letter-spacing: -0.055em; }
       .date-stamp { display: inline-flex; width: fit-content; margin-top: 14px; padding: 7px 10px; text-align: left; }
       .summary-panel, .method-panel { border-radius: 12px; box-shadow: 0 3px 12px rgba(18, 59, 74, 0.05); }
       .summary-panel::before { border-radius: 12px 0 0 12px; }
@@ -970,9 +980,9 @@
           <div class="brand-lockup">
             <span class="brand-mark" aria-hidden="true">
               <svg viewBox="0 0 32 32" fill="none">
-                <path d="M9 25V10.5L16 5l7 5.5V25" stroke="#E5B999" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 25V10.5L16 5l7 5.5V25" stroke="#BFD8FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M12.4 25V15.5h7.2V25" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16 10.2v4.7" stroke="#B97950" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M16 10.2v4.7" stroke="#2D6DD3" stroke-width="2.2" stroke-linecap="round"/>
               </svg>
             </span>
             <span class="brand-name">Casa Norte<span>atendimento imobiliário</span></span>
@@ -997,9 +1007,9 @@
           <div class="brand-lockup">
             <span class="brand-mark" aria-hidden="true">
               <svg viewBox="0 0 32 32" fill="none">
-                <path d="M9 25V10.5L16 5l7 5.5V25" stroke="#E5B999" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 25V10.5L16 5l7 5.5V25" stroke="#BFD8FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M12.4 25V15.5h7.2V25" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16 10.2v4.7" stroke="#B97950" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M16 10.2v4.7" stroke="#2D6DD3" stroke-width="2.2" stroke-linecap="round"/>
               </svg>
             </span>
             <span class="brand-name">Casa Norte<span>atendimento imobiliário</span></span>
@@ -1043,7 +1053,7 @@
                 <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 5 6v5c0 4.5 2.9 8.2 7 10 4.1-1.8 7-5.5 7-10V6z"/><path d="m9 12 2 2 4-4"/></svg> Linha digitável para copiar</span>
                 <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5h20v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/></svg> Imprima quando quiser</span>
               </div>
-              <button class="primary-action" id="generate-button" type="button"><span>Gerar boleto</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
+              <button class="primary-action" id="generate-button" type="button" aria-label="Gerar boleto de aluguel"><span>Gerar boleto de aluguel</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
               <p class="action-disclaimer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Você só precisa conferir os dados acima.</p>
             </div>
 
