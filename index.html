@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#123B4A" />
   <meta name="description" content="Portal para pagamento mensal de aluguel por boleto bancário." />
-  <title>Imobiliaria Teste· Pagamento de aluguel</title>
+  <title>Casa Norte · Pagamento de aluguel</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -439,7 +439,7 @@
     .amount-block strong {
       color: var(--porto);
       font-family: "DM Serif Display", serif;
-      font-size: 31px;
+      font-size: 34px;
       line-height: 0.98;
       font-weight: 400;
       letter-spacing: -0.045em;
@@ -598,7 +598,7 @@
     .action-disclaimer {
       justify-content: center;
       gap: 5px;
-      margin: 14px 0 0;
+      margin: 12px 0 0;
       color: #8b9694;
       font-size: 10px;
     }
@@ -656,8 +656,7 @@
     }
 
     .line-field {
-      position: relative;
-      padding: 13px 86px 12px 13px;
+      padding: 13px;
       border: 1px solid #cbd8d4;
       background: #f7faf8;
     }
@@ -674,21 +673,23 @@
     }
 
     .copy-button {
-      position: absolute;
-      right: 10px;
-      bottom: 12px;
+      width: 100%;
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 5px;
-      padding: 6px 8px;
+      gap: 6px;
+      margin-top: 12px;
+      padding: 10px 12px;
       cursor: pointer;
-      color: var(--porto);
-      background: transparent;
-      font-size: 10px;
+      color: #fff;
+      background: var(--porto);
+      font-size: 11px;
       font-weight: 800;
+      transition: background 180ms var(--ease-out), transform 160ms var(--ease-out);
     }
 
-    .copy-button:hover { color: var(--copper); }
+    .copy-button:hover { background: var(--porto-deep); }
+    .copy-button:active { transform: scale(0.98); }
 
     .result-actions {
       justify-content: space-between;
@@ -899,7 +900,7 @@
       .summary-index { font-size: 9px; }
       .summary-main { margin-top: 23px; }
       .tenant-block strong { max-width: 145px; font-size: 15px; }
-      .amount-block strong { font-size: 26px; }
+      .amount-block strong { font-size: 27px; }
       .data-caption { font-size: 9px; }
       .method-body, .boleto-result { padding-left: 0; }
       .method-heading { gap: 9px; }
@@ -908,8 +909,44 @@
       .primary-action { font-size: 12px; }
       .primary-action svg { width: 16px; height: 16px; flex-basis: 16px; }
       .action-disclaimer { font-size: 9px; }
+      .copy-button { font-size: 11px; }
       .compact-support { align-items: flex-start; flex-direction: column; gap: 5px; }
       .payment-footer { align-items: flex-start; flex-direction: column; gap: 5px; }
+    }
+
+    /* Checkout refinement: the payment action is the visual anchor, not a landing-page hero. */
+    body { background: #edf1f2; }
+    .portal-shell { padding: 32px; background: #edf1f2; }
+    .portal-shell::before { display: none; }
+    .portal-frame { width: min(980px, 100%); min-height: auto; display: block; border-radius: 18px; box-shadow: 0 20px 55px rgba(18, 59, 74, 0.12); }
+    .editorial-rail { display: none; }
+    .mobile-header { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 22px 36px; color: var(--porto); background: #fff; border-bottom: 1px solid #e1e8e7; }
+    .mobile-header .brand-mark { border-color: #cbdad7; background: #f2f7f6; }
+    .mobile-header .brand-name span { color: var(--muted); opacity: 1; }
+    .mobile-header .secure-pill { color: var(--success); border-color: #c9ded6; background: #f1f8f4; }
+    .payment-column { background: #f5f7f7; }
+    .payment-content { width: min(700px, 100%); padding: 42px 36px 32px; }
+    .section-intro { margin-bottom: 25px; }
+    .section-intro h2 { font-size: clamp(32px, 4vw, 40px); }
+    .date-stamp { padding: 8px 12px; border: 1px solid #dbe5e2; background: #fff; text-align: center; }
+    .summary-panel, .method-panel { border-radius: 14px; border-color: #d8e1df; box-shadow: 0 4px 16px rgba(18, 59, 74, 0.045); }
+    .summary-panel::before { border-radius: 14px 0 0 14px; }
+    .method-panel { background: #fff; }
+    .payment-footer { padding: 17px 36px; background: #fff; }
+
+    @media (max-width: 760px) {
+      body { background: #fff; }
+      .portal-shell { padding: 0; background: #fff; }
+      .portal-frame { width: 100%; border-radius: 0; box-shadow: none; }
+      .mobile-header { padding: 15px 18px; }
+      .payment-column { background: #f5f7f7; }
+      .payment-content { width: 100%; padding: 28px 16px 22px; }
+      .section-intro { margin-bottom: 20px; }
+      .section-intro h2 { font-size: clamp(30px, 8.5vw, 37px); }
+      .date-stamp { display: inline-flex; width: fit-content; margin-top: 14px; padding: 7px 10px; text-align: left; }
+      .summary-panel, .method-panel { border-radius: 12px; box-shadow: 0 3px 12px rgba(18, 59, 74, 0.05); }
+      .summary-panel::before { border-radius: 12px 0 0 12px; }
+      .payment-footer { padding: 16px 18px; }
     }
 
     @media print {
@@ -938,7 +975,7 @@
                 <path d="M16 10.2v4.7" stroke="#B97950" stroke-width="2.2" stroke-linecap="round"/>
               </svg>
             </span>
-            <span class="brand-name">Imobiliaria testespan>atendimento imobiliário</span></span>
+            <span class="brand-name">Casa Norte<span>atendimento imobiliário</span></span>
           </div>
           <span class="secure-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/></svg> Ambiente seguro</span>
         </div>
@@ -965,7 +1002,7 @@
                 <path d="M16 10.2v4.7" stroke="#B97950" stroke-width="2.2" stroke-linecap="round"/>
               </svg>
             </span>
-            <span class="brand-name">Imobiliaria teste<span>atendimento imobiliário</span></span>
+            <span class="brand-name">Casa Norte<span>atendimento imobiliário</span></span>
           </div>
           <span class="secure-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/></svg> Seguro</span>
         </header>
@@ -973,9 +1010,9 @@
         <div class="payment-content">
           <div class="section-intro">
             <div>
-              <p class="eyebrow">Passo 1 · Confira os dados</p>
-              <h2 id="greeting">Olá, inquilino.</h2>
-              <p class="intro-copy">Confira o nome e o valor antes de gerar o boleto.</p>
+              <p class="eyebrow">Pagamento do aluguel</p>
+              <h2 id="greeting">Pague seu aluguel.</h2>
+              <p class="intro-copy">Confira os dados e gere o boleto para pagar.</p>
             </div>
             <span class="date-stamp">Etapa<br /><strong>1 de 2</strong></span>
           </div>
@@ -983,12 +1020,6 @@
           <section class="summary-panel" aria-labelledby="summary-title">
             <div class="summary-heading">
               <div><p class="eyebrow">Cobrança</p><h3 id="summary-title">Aluguel do mês</h3></div>
-              <div class="summary-top-meta">
-                <span class="document-seal" aria-hidden="true">
-                  <svg viewBox="0 0 32 32" fill="none"><path d="M9 25V10.5L16 5l7 5.5V25" stroke="#123B4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.4 25V15.5h7.2V25" stroke="#B97950" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-                <span class="summary-index">01 / 02</span>
-              </div>
             </div>
 
             <div class="summary-main">
@@ -1003,26 +1034,25 @@
           <section class="method-panel" id="method-panel" aria-labelledby="method-title">
             <div class="method-heading">
               <div class="method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M7 14h4"/></svg></div>
-              <div><p class="eyebrow">Passo 2 · Forma de pagamento</p><h3 id="method-title">Boleto bancário</h3></div>
-              <span class="method-selected"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.6 2.6L16 9"/></svg> Pagamento único</span>
+              <div><p class="eyebrow">Forma de pagamento</p><h3 id="method-title">Boleto bancário</h3></div>
             </div>
 
             <div class="method-body" id="method-body">
-              <p>Pague pelo app do seu banco, internet banking ou em uma lotérica.</p>
+              <p>Depois de gerar, copie o código e pague pelo app do seu banco ou em uma lotérica.</p>
               <div class="method-benefits" hidden>
                 <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 5 6v5c0 4.5 2.9 8.2 7 10 4.1-1.8 7-5.5 7-10V6z"/><path d="m9 12 2 2 4-4"/></svg> Linha digitável para copiar</span>
                 <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5h20v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/></svg> Imprima quando quiser</span>
               </div>
               <button class="primary-action" id="generate-button" type="button"><span>Gerar boleto</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
-              <p class="action-disclaimer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Dados bancários não são solicitados.</p>
+              <p class="action-disclaimer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Você só precisa conferir os dados acima.</p>
             </div>
 
             <div class="boleto-result" id="boleto-result" aria-live="polite" hidden>
-              <div class="success-heading"><span class="success-icon">✓</span><div><strong>Prévia do boleto gerada</strong><span>Confira a linha digitável antes de continuar.</span></div></div>
+              <div class="success-heading"><span class="success-icon">✓</span><div><strong>Boleto pronto</strong><span>Copie o código para pagar no app do seu banco.</span></div></div>
               <div class="barcode-preview" aria-hidden="true"><span></span></div>
-              <div class="line-field"><span class="data-label">Linha digitável</span><strong id="payment-line"></strong><button class="copy-button" id="copy-button" type="button"><span id="copy-icon">⧉</span><span id="copy-label">Copiar</span></button></div>
-              <div class="result-actions"><button type="button" class="secondary-action" id="print-button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5h20v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/></svg> Imprimir boleto</button><button type="button" class="text-action" id="back-button">Voltar</button></div>
-              <p class="demo-warning"><span>✦</span> Prévia demonstrativa. Conecte um emissor bancário antes de publicar.</p>
+              <div class="line-field"><span class="data-label">Código de pagamento</span><strong id="payment-line"></strong><button class="copy-button" id="copy-button" type="button"><span id="copy-icon">⧉</span><span id="copy-label">Copiar código</span></button></div>
+              <div class="result-actions"><button type="button" class="secondary-action" id="print-button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5h20v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/></svg> Imprimir</button><button type="button" class="text-action" id="back-button">Voltar</button></div>
+              <p class="demo-warning"><span>✦</span> Prévia de demonstração: conecte um emissor bancário para emitir boletos válidos.</p>
             </div>
           </section>
 
@@ -1068,11 +1098,9 @@
       const printButton = document.getElementById("print-button");
       const backButton = document.getElementById("back-button");
 
-      const firstName = hasName ? tenantName.split(/\s+/)[0] : "inquilino";
-
       tenantNameElement.textContent = hasName ? tenantName : "Nome não informado";
       amountElement.textContent = formatCurrency(amount);
-      greetingElement.textContent = "Olá, " + firstName + ".";
+      greetingElement.textContent = "Pague seu aluguel.";
 
       if (!paymentReady) {
         generateButton.disabled = true;
