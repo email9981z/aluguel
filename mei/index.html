@@ -1,0 +1,1295 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0B5C75" />
+  <meta name="description" content="Portal seguro para pagamento de serviço de abertura de CNPJ MEI por boleto bancário." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Núcleo MEI Serviços Empresariais" />
+  <meta property="og:title" content="Cobrança de serviço para abertura de CNPJ MEI" />
+  <meta property="og:description" content="Acesse o portal seguro para consultar os dados do MEI e pagar o serviço contratado por boleto." />
+  <meta property="og:image" content="https://3000-irrtndtjhvubaaqj62e2j-156ac3fc.us3.manus.computer/manus-storage/og-whatsapp-preview_a80191cf.jpg" />
+  <meta property="og:image:secure_url" content="https://3000-irrtndtjhvubaaqj62e2j-156ac3fc.us3.manus.computer/manus-storage/og-whatsapp-preview_a80191cf.jpg" />
+  <meta property="og:image:alt" content="Portal seguro de cobrança de serviço para abertura de CNPJ MEI" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cobrança de serviço para abertura de CNPJ MEI" />
+  <meta name="twitter:description" content="Acesse o portal seguro para consultar os dados do MEI e pagar o serviço contratado por boleto." />
+  <meta name="twitter:image" content="https://3000-irrtndtjhvubaaqj62e2j-156ac3fc.us3.manus.computer/manus-storage/og-whatsapp-preview_a80191cf.jpg" />
+  <title>Cobrança de serviço · Abertura de CNPJ MEI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /*
+     * Direção visual: Checkout azul profissional.
+     * Azul profundo, superfícies claras e hierarquia transacional para uma experiência objetiva e confiável.
+     */
+
+    :root {
+      --porto: #167A64;
+      --porto-deep: #0B4F6C;
+      --porto-soft: #E6F4F1;
+      --ivory: #F1F8FA;
+      --ink: #15344A;
+      --muted: #607889;
+      --line: #D5E6EA;
+      --copper: #1D9A7A;
+      --success: #198A69;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(11, 79, 108, 0.13);
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-width: 320px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: var(--ivory);
+      color: var(--ink);
+      font-family: "Manrope", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, a { font: inherit; }
+    button { border: 0; }
+    [hidden] { display: none !important; }
+    button:focus-visible, a:focus-visible {
+      outline: 3px solid rgba(22, 122, 100, 0.42);
+      outline-offset: 4px;
+    }
+
+    .portal-shell {
+      min-height: 100vh;
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 15% 5%, rgba(29, 154, 122, 0.10), transparent 28%),
+        linear-gradient(135deg, #F9FCFD 0%, var(--ivory) 54%, #E6F2F4 100%);
+    }
+
+    .portal-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.28;
+      background-image: repeating-linear-gradient(
+        0deg,
+        rgba(18, 59, 74, 0.025) 0,
+        rgba(18, 59, 74, 0.025) 1px,
+        transparent 1px,
+        transparent 5px
+      );
+    }
+
+    .portal-frame {
+      width: min(1370px, 100%);
+      min-height: calc(100vh - 52px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(345px, 0.74fr) minmax(610px, 1.26fr);
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      animation: frame-in 700ms var(--ease-out) both;
+    }
+
+    .editorial-rail {
+      min-height: 780px;
+      padding: 40px 44px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(8, 55, 78, 0.98), rgba(11, 79, 108, 0.88)),
+        radial-gradient(circle at 72% 18%, rgba(29, 154, 122, 0.34), transparent 32%);
+    }
+
+    .editorial-rail::before,
+    .editorial-rail::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .editorial-rail::before {
+      width: 420px;
+      height: 520px;
+      right: -190px;
+      top: -120px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      transform: rotate(17deg);
+      box-shadow: 0 0 0 24px rgba(255, 255, 255, 0.025), 0 0 0 48px rgba(255, 255, 255, 0.02);
+    }
+
+    .editorial-rail::after {
+      inset: 0;
+      background: linear-gradient(135deg, transparent 25%, rgba(255, 255, 255, 0.025) 25.1%, transparent 25.4%);
+      background-size: 32px 32px;
+      opacity: 0.4;
+    }
+
+    .editorial-rail > * { position: relative; z-index: 1; }
+
+    .rail-topline,
+    .brand-lockup,
+    .secure-pill,
+    .rail-meta,
+    .rail-note,
+    .summary-footnote,
+    .method-heading,
+    .method-benefits span,
+    .action-disclaimer,
+    .trust-copy,
+    .support-links a,
+    .support-links span,
+    .support-link,
+    .payment-footer,
+    .success-heading,
+    .result-actions,
+    .secondary-action,
+    .text-action {
+      display: flex;
+      align-items: center;
+    }
+
+    .rail-topline {
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .brand-lockup { gap: 10px; }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      flex: 0 0 36px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.52);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .brand-mark svg { width: 22px; height: 22px; }
+
+    .brand-name {
+      font-size: 14px;
+      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-name span {
+      display: block;
+      margin-top: 4px;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.105em;
+      text-transform: uppercase;
+      opacity: 0.62;
+    }
+
+    .secure-pill {
+      gap: 7px;
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      border-radius: 99px;
+      color: rgba(255, 255, 255, 0.84);
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 10px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .secure-pill svg { width: 14px; height: 14px; }
+
+    .rail-copy {
+      max-width: 360px;
+      margin: auto 0;
+      padding: 64px 0 42px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--copper);
+      font-size: 10px;
+      line-height: 1.25;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-light { color: #A7E6D2; }
+
+    .rail-copy h1 {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 400;
+      font-size: clamp(45px, 5vw, 68px);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .rail-copy h1 em {
+      color: #6FD1B5;
+      font-style: italic;
+    }
+
+    .rail-description {
+      max-width: 300px;
+      margin: 28px 0 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 14px;
+      line-height: 1.72;
+    }
+
+    .rail-footer {
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .rail-note { gap: 12px; }
+
+    .note-line {
+      width: 36px;
+      height: 1px;
+      flex: 0 0 36px;
+      background: #6FD1B5;
+    }
+
+    .rail-note p {
+      max-width: 245px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.68);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 15px;
+      line-height: 1.36;
+    }
+
+    .rail-meta {
+      justify-content: space-between;
+      margin-top: 44px;
+      color: rgba(255, 255, 255, 0.42);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+    }
+
+    .payment-column {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+    }
+
+    .mobile-header { display: none; }
+
+    .payment-content {
+      width: min(650px, 100%);
+      margin: 0 auto;
+      padding: 58px 62px 38px;
+      flex: 1;
+    }
+
+    .section-intro {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: flex-start;
+      margin-bottom: 36px;
+    }
+
+    .section-intro h2 {
+      margin: 0;
+      color: var(--porto-deep);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(32px, 4vw, 44px);
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+
+    .intro-copy {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .date-stamp {
+      padding: 6px 0 0 20px;
+      border-left: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.45;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .date-stamp strong { color: var(--ink); }
+
+    .private-service-note {
+      margin: 0 0 16px;
+      padding: 11px 13px;
+      border: 1px solid #D7E5F6;
+      border-left: 3px solid #1D9A7A;
+      color: #456A77;
+      background: #F2FBF8;
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    .private-service-note strong { color: var(--porto-deep); }
+
+    .summary-panel,
+    .method-panel {
+      position: relative;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .summary-panel {
+      margin-bottom: 16px;
+      padding: 24px 25px 20px;
+    }
+
+    .summary-panel::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 3px;
+      background: var(--copper);
+    }
+
+    .summary-heading,
+    .summary-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .summary-heading { align-items: flex-start; }
+
+    .summary-heading h3,
+    .method-heading h3,
+    .support-card h3 {
+      margin: 0;
+      color: var(--porto-deep);
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .summary-top-meta {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .document-seal {
+      width: 25px;
+      height: 25px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #cbd9d5;
+      border-radius: 50%;
+      background: #f3f7f4;
+    }
+
+    .document-seal svg { width: 15px; height: 15px; }
+
+    .summary-index {
+      margin-top: 1px;
+      color: #a9b4b2;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+
+    .client-meta {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      margin-top: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #E6EEF8;
+    }
+
+    .client-field { min-width: 0; display: flex; flex-direction: column; }
+    .client-field strong { overflow: hidden; color: var(--ink); font-size: 14px; line-height: 1.25; text-overflow: ellipsis; white-space: nowrap; }
+    .client-cnpj { min-width: 170px; text-align: right; align-items: flex-end; }
+    .client-cnpj strong { color: var(--porto-deep); font-family: "Plus Jakarta Sans", sans-serif; letter-spacing: -0.02em; }
+
+    .summary-main {
+      margin-top: 22px;
+      gap: 32px;
+    }
+
+    .demo-data-note {
+      margin: 18px 0 0;
+      color: #8B9BB0;
+      font-size: 9px;
+      line-height: 1.45;
+    }
+
+    .tenant-block,
+    .amount-block {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .amount-block {
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .data-label {
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .tenant-block strong {
+      overflow: hidden;
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.2;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .amount-block strong {
+      color: var(--porto);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 34px;
+      line-height: 0.98;
+      font-weight: 700;
+      letter-spacing: -0.045em;
+    }
+
+    .data-caption {
+      margin-top: 7px;
+      color: #8d9896;
+      font-size: 10px;
+      line-height: 1.35;
+    }
+
+    .summary-rule {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 4px;
+      margin: 20px 0 16px;
+      background-image: linear-gradient(90deg, transparent 60%, var(--line) 60%);
+      background-repeat: repeat-x;
+      background-size: 10px 1px;
+    }
+
+    .summary-rule span {
+      width: 6px;
+      height: 6px;
+      display: block;
+      border: 1px solid #c5cfcc;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .summary-footnote {
+      gap: 7px;
+      color: #8d9896;
+      font-size: 10px;
+      line-height: 1.35;
+    }
+
+    .summary-footnote svg,
+    .method-icon svg,
+    .method-benefits svg,
+    .action-disclaimer svg,
+    .trust-copy svg,
+    .support-links svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .method-panel {
+      padding: 23px 25px 24px;
+      transition: border-color 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
+    }
+
+    .method-panel.is-generated {
+      border-color: #bed5cd;
+      box-shadow: 0 10px 30px rgba(35, 114, 93, 0.08);
+    }
+
+    .method-heading {
+      gap: 11px;
+      align-items: flex-start;
+    }
+
+    .method-icon {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #c7d6d5;
+      color: var(--porto);
+      background: var(--porto-soft);
+    }
+
+    .method-heading .eyebrow { margin-bottom: 5px; }
+
+    .method-selected {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin: 8px 0 0 auto;
+      color: var(--success);
+      font-size: 10px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .method-selected svg { width: 16px; height: 16px; }
+
+    .method-body,
+    .boleto-result { padding-left: 49px; }
+
+    .method-body > p {
+      max-width: 460px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.62;
+    }
+
+    .method-benefits {
+      display: flex;
+      gap: 17px;
+      padding-bottom: 21px;
+      border-bottom: 1px solid #edf0ee;
+    }
+
+    .method-benefits span {
+      gap: 6px;
+      color: #5c6b69;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .method-benefits svg { color: var(--success); }
+
+    .primary-action {
+      width: 100%;
+      min-height: 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 18px;
+      padding: 0 16px 0 20px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      cursor: pointer;
+      color: #fff;
+      background: linear-gradient(180deg, #1FA67F 0%, #0B5C75 100%);
+      box-shadow: 0 6px 14px rgba(11, 92, 117, 0.20);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      transition: background 180ms var(--ease-out), transform 160ms var(--ease-out), box-shadow 180ms var(--ease-out);
+    }
+
+    .primary-action span {
+      display: block;
+      line-height: 1.2;
+      text-align: left;
+    }
+
+    .primary-action svg {
+      width: 19px;
+      height: 19px;
+      flex: 0 0 19px;
+      display: block;
+      opacity: 0.96;
+    }
+
+    .primary-action:hover:not(:disabled) {
+      transform: translateY(-1px);
+      background: linear-gradient(180deg, #2BB88F 0%, #0B4F6C 100%);
+      box-shadow: 0 9px 20px rgba(11, 79, 108, 0.26);
+    }
+
+    .primary-action:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px #D9F3EB, 0 7px 18px rgba(11, 79, 108, 0.22);
+    }
+
+    .primary-action:active:not(:disabled) { transform: scale(0.985); }
+    .primary-action:disabled { cursor: not-allowed; color: #F7FBFB; background: #B9C9CB; border-color: transparent; box-shadow: none; }
+
+    .action-disclaimer {
+      justify-content: center;
+      gap: 5px;
+      margin: 12px 0 0;
+      color: #8b9694;
+      font-size: 10px;
+    }
+
+    .boleto-result { animation: result-in 450ms var(--ease-out) both; }
+
+    .success-heading {
+      gap: 10px;
+      padding: 17px 0 18px;
+      border-bottom: 1px solid #e7efeb;
+    }
+
+    .success-icon {
+      width: 31px;
+      height: 31px;
+      flex: 0 0 31px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--success);
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    .success-heading strong,
+    .success-heading span { display: block; }
+    .success-heading strong { color: var(--porto-deep); font-size: 12px; }
+    .success-heading div > span { margin-top: 3px; color: var(--muted); font-size: 10px; }
+
+    .barcode-preview {
+      height: 40px;
+      margin: 19px 0 13px;
+      opacity: 0.72;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--porto) 0 2px,
+        transparent 2px 4px,
+        var(--porto) 4px 5px,
+        transparent 5px 8px,
+        var(--porto) 8px 12px,
+        transparent 12px 14px,
+        var(--porto) 14px 15px,
+        transparent 15px 20px
+      );
+    }
+
+    .barcode-preview span {
+      display: block;
+      width: 35%;
+      height: 100%;
+      margin-left: 14%;
+      border-left: 3px solid #fff;
+      border-right: 2px solid #fff;
+    }
+
+    .line-field {
+      padding: 13px;
+      border: 1px solid #cbd8d4;
+      background: #f7faf8;
+    }
+
+    .line-field .data-label { display: block; margin-bottom: 5px; }
+    .line-field strong {
+      display: block;
+      overflow-wrap: anywhere;
+      color: var(--porto);
+      font-family: monospace;
+      font-size: 11px;
+      line-height: 1.3;
+      letter-spacing: 0.015em;
+    }
+
+    .copy-button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      padding: 10px 12px;
+      cursor: pointer;
+      color: #fff;
+      background: var(--porto);
+      font-size: 11px;
+      font-weight: 800;
+      transition: background 180ms var(--ease-out), transform 160ms var(--ease-out);
+    }
+
+    .copy-button:hover { background: var(--porto-deep); }
+    .copy-button:active { transform: scale(0.98); }
+
+    .result-actions {
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 17px;
+    }
+
+    .secondary-action,
+    .text-action {
+      gap: 7px;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .secondary-action {
+      padding: 10px 12px;
+      border: 1px solid #cad8d4;
+      color: var(--porto);
+      background: #fff;
+    }
+
+    .secondary-action:hover { background: var(--porto-soft); }
+    .text-action { color: var(--muted); background: transparent; }
+
+    .demo-warning {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin: 18px 0 0;
+      color: #9a6b4c;
+      font-size: 9px;
+      line-height: 1.45;
+    }
+
+    .demo-warning svg { flex: 0 0 14px; }
+
+    .trust-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      padding: 21px 0 19px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .trust-copy {
+      gap: 9px;
+      color: #7b8784;
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .trust-copy svg { flex: 0 0 18px; color: var(--success); }
+    .trust-copy strong { display: block; color: var(--ink); font-size: 10px; }
+
+    .support-link {
+      gap: 1px;
+      color: var(--copper);
+      font-size: 10px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .support-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    .compact-support {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      margin-top: 18px;
+      padding: 13px 2px 0;
+      border-top: 1px solid var(--line);
+      color: #8b9694;
+      font-size: 10px;
+    }
+
+    .compact-support a {
+      color: var(--copper);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .compact-support a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    .support-card {
+      display: grid;
+      grid-template-columns: 108px 1fr;
+      gap: 18px;
+      margin-top: 23px;
+      padding: 14px;
+      border: 1px solid #ebe8e2;
+      border-left: 3px solid var(--copper);
+      background: #fbfaf7;
+    }
+
+    .support-seal {
+      min-height: 108px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #d5ddd8;
+      color: var(--porto);
+      background: repeating-linear-gradient(0deg, rgba(18, 59, 74, 0.035) 0 1px, transparent 1px 4px), #f2f5f1;
+      text-align: center;
+    }
+
+    .support-seal svg { width: 28px; height: 28px; margin-bottom: 5px; }
+    .support-seal span { font-size: 9px; font-weight: 800; letter-spacing: 0.15em; }
+    .support-seal small { margin-top: 4px; color: var(--copper); font-size: 8px; font-weight: 800; line-height: 1.05; letter-spacing: 0.09em; text-transform: uppercase; }
+    .support-content { padding: 2px 3px 2px 0; }
+    .support-content .eyebrow { margin-bottom: 7px; }
+    .support-card h3 { font-size: 14px; }
+    .support-card p:not(.eyebrow) { margin: 7px 0 12px; color: var(--muted); font-size: 10px; line-height: 1.45; }
+    .support-links { display: grid; gap: 6px; }
+    .support-links a, .support-links span { gap: 6px; color: #677471; font-size: 9px; text-decoration: none; }
+    .support-links a:hover { color: var(--copper); }
+    .support-links svg { color: var(--copper); }
+
+    .payment-footer {
+      justify-content: space-between;
+      gap: 12px;
+      padding: 17px 62px;
+      border-top: 1px solid #eef0ed;
+      color: #a2aba9;
+      font-size: 9px;
+    }
+
+    .footer-dot { padding: 0 4px; color: var(--copper); }
+
+    @keyframes frame-in {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes result-in {
+      from { opacity: 0; transform: translateY(7px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .portal-shell { padding: 16px; }
+      .portal-frame {
+        min-height: calc(100vh - 32px);
+        grid-template-columns: minmax(300px, 0.64fr) minmax(500px, 1.36fr);
+      }
+      .editorial-rail { padding: 30px 30px 28px; }
+      .payment-content { padding: 46px 39px 30px; }
+      .payment-footer { padding-inline: 39px; }
+    }
+
+    @media (max-width: 760px) {
+      body { background: #fff; }
+      .portal-shell { padding: 0; background: #fff; }
+      .portal-frame { display: block; min-height: 100vh; box-shadow: none; }
+      .editorial-rail { display: none; }
+      .mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 20px;
+        color: var(--white);
+        background: var(--porto);
+      }
+      .mobile-header .brand-mark { width: 34px; height: 34px; flex-basis: 34px; }
+      .mobile-header .brand-name { font-size: 13px; }
+      .mobile-header .secure-pill { padding: 7px 9px; font-size: 9px; }
+      .payment-content { width: 100%; padding: 30px 20px 24px; }
+      .section-intro { margin-bottom: 24px; }
+      .section-intro h2 { font-size: clamp(31px, 9vw, 39px); }
+      .intro-copy { max-width: 290px; margin-top: 9px; font-size: 12px; }
+      .summary-panel { margin-bottom: 14px; }
+      .method-panel { padding-top: 20px; }
+      .method-heading h3 { font-size: 15px; }
+      .method-body > p { margin-top: 15px; font-size: 12px; }
+      .primary-action { min-height: 54px; margin-top: 20px; padding-inline: 16px; font-size: 13px; }
+      .primary-action svg { width: 17px; height: 17px; flex-basis: 17px; }
+      .payment-footer { padding: 16px 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .section-intro { display: block; margin-bottom: 24px; }
+      .date-stamp {
+        display: block;
+        margin-top: 14px;
+        padding: 0;
+        border-left: 0;
+        text-align: left;
+        font-size: 9px;
+      }
+      .summary-panel, .method-panel { padding: 19px 16px 18px; }
+      .summary-heading, .summary-main { gap: 12px; }
+      .summary-heading h3 { font-size: 15px; }
+      .summary-top-meta { gap: 8px; }
+      .document-seal { width: 23px; height: 23px; }
+      .summary-index { font-size: 9px; }
+      .summary-main { margin-top: 23px; }
+      .tenant-block strong { max-width: 145px; font-size: 15px; }
+      .amount-block strong { font-size: 27px; }
+      .data-caption { font-size: 9px; }
+      .method-body, .boleto-result { padding-left: 0; }
+      .method-heading { gap: 9px; }
+      .method-icon { width: 34px; height: 34px; flex-basis: 34px; }
+      .method-selected { margin-top: 7px; font-size: 8px; }
+      .primary-action { min-height: 54px; padding: 0 15px 0 17px; font-size: 11px; }
+      .primary-action svg { width: 16px; height: 16px; flex-basis: 16px; }
+      .action-disclaimer { font-size: 9px; }
+      .copy-button { font-size: 11px; }
+      .compact-support { align-items: flex-start; flex-direction: column; gap: 5px; }
+      .payment-footer { align-items: flex-start; flex-direction: column; gap: 5px; }
+    }
+
+    /* Checkout refinement: the payment action is the visual anchor, not a landing-page hero. */
+    body { background: #EEF5FD; }
+    .portal-shell { padding: 32px; background: #EEF5FD; }
+    .portal-shell::before { display: none; }
+    .portal-frame { width: min(980px, 100%); min-height: auto; display: block; border-radius: 18px; box-shadow: 0 20px 55px rgba(18, 59, 74, 0.12); }
+    .editorial-rail { display: none; }
+    .mobile-header { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 22px 36px; color: var(--porto); background: #fff; border-bottom: 1px solid #e1e8e7; }
+    .mobile-header .brand-mark { border-color: #C7DBF7; background: #F1F6FF; }
+    .mobile-header .brand-name span { color: var(--muted); opacity: 1; }
+    .mobile-header .secure-pill { color: #1F6A9C; border-color: #C6DBF2; background: #F0F7FF; }
+    .payment-column { background: #F4F8FD; }
+    .payment-content { width: min(700px, 100%); padding: 42px 36px 32px; }
+    .section-intro { margin-bottom: 25px; }
+    .section-intro h2 { font-size: clamp(32px, 4vw, 40px); font-weight: 700; letter-spacing: -0.055em; }
+    .date-stamp { padding: 8px 12px; border: 1px solid #dbe5e2; background: #fff; text-align: center; }
+    .summary-panel, .method-panel { border-radius: 14px; border-color: #d8e1df; box-shadow: 0 4px 16px rgba(18, 59, 74, 0.045); }
+    .summary-panel::before { border-radius: 14px 0 0 14px; }
+    .method-panel { background: #fff; }
+    .payment-footer { padding: 17px 36px; background: #fff; }
+
+    @media (max-width: 760px) {
+      body { background: #fff; }
+      .portal-shell { padding: 0; background: #fff; }
+      .portal-frame { width: 100%; border-radius: 0; box-shadow: none; }
+      .mobile-header { padding: 15px 18px; }
+      .payment-column { background: #F4F8FD; }
+      .payment-content { width: 100%; padding: 28px 16px 22px; }
+      .section-intro { margin-bottom: 20px; }
+      .section-intro h2 { font-size: clamp(30px, 8.5vw, 37px); font-weight: 700; letter-spacing: -0.055em; }
+      .date-stamp { display: inline-flex; width: fit-content; margin-top: 14px; padding: 7px 10px; text-align: left; }
+      .summary-panel, .method-panel { border-radius: 12px; box-shadow: 0 3px 12px rgba(18, 59, 74, 0.05); }
+      .summary-panel::before { border-radius: 12px 0 0 12px; }
+      .payment-footer { padding: 16px 18px; }
+    }
+
+    .payment-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+      padding: 13px 2px 0;
+      border-top: 1px solid rgba(11, 79, 108, 0.14);
+      color: #8A9AB0;
+      font-size: 10px;
+      line-height: 1.45;
+      letter-spacing: 0.01em;
+    }
+
+    .payment-footer .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .payment-footer a {
+      color: #167A64;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .payment-footer a:hover { color: var(--porto-deep); text-decoration: underline; text-underline-offset: 3px; }
+
+    @media (max-width: 760px) {
+      .client-meta { grid-template-columns: 1fr; gap: 13px; }
+      .client-cnpj { min-width: 0; align-items: flex-start; text-align: left; }
+      .private-service-note { margin-bottom: 14px; font-size: 10px; }
+      .payment-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+        margin-top: 18px;
+        padding-top: 12px;
+      }
+    }
+
+    @media print {
+      .portal-shell { padding: 0; background: #fff; }
+      .portal-shell::before, .editorial-rail, .mobile-header, .section-intro, .summary-panel, .trust-row, .compact-support, .support-card, .payment-footer, .result-actions, .demo-warning { display: none !important; }
+      .portal-frame { display: block; min-height: auto; box-shadow: none; }
+      .payment-content { width: 100%; max-width: 720px; padding: 0; margin: 0 auto; }
+      .method-panel { border: 1px solid #222; box-shadow: none; }
+      .method-heading { padding-bottom: 10px; border-bottom: 1px solid #222; }
+      .method-body { display: none; }
+      .boleto-result { padding-left: 0; }
+      .copy-button { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="portal-shell">
+    <div class="portal-frame">
+      <aside class="editorial-rail">
+        <div class="rail-topline">
+          <div class="brand-lockup">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none">
+                <path d="M9 25V10.5L16 5l7 5.5V25" stroke="#C2EFE3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12.4 25V15.5h7.2V25" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16 10.2v4.7" stroke="#1D9A7A" stroke-width="2.2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="brand-name">Núcleo MEI<span>serviços empresariais</span></span>
+          </div>
+          <span class="secure-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/></svg> Ambiente seguro</span>
+        </div>
+
+        <div class="rail-copy">
+          <p class="eyebrow eyebrow-light">Cobrança de serviço · 01</p>
+          <h1>Abertura de<br /><em>CNPJ MEI.</em></h1>
+          <p class="rail-description">Confira os dados do MEI, veja o valor e gere o boleto do serviço contratado.</p>
+        </div>
+
+        <div class="rail-footer">
+          <div class="rail-note"><span class="note-line"></span><p>Uma experiência simples para uma obrigação importante.</p></div>
+          <div class="rail-meta"><span>NÚCLEO MEI / SERVIÇOS</span><span>2026</span></div>
+        </div>
+      </aside>
+
+      <section class="payment-column">
+        <header class="mobile-header">
+          <div class="brand-lockup">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none">
+                <path d="M9 25V10.5L16 5l7 5.5V25" stroke="#C2EFE3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12.4 25V15.5h7.2V25" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16 10.2v4.7" stroke="#1D9A7A" stroke-width="2.2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="brand-name">Núcleo MEI<span>serviços empresariais</span></span>
+          </div>
+          <span class="secure-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/></svg> Seguro</span>
+        </header>
+
+        <div class="payment-content">
+          <div class="section-intro">
+            <div>
+              <p class="eyebrow">Cobrança de serviço</p>
+              <h2 id="greeting">Abertura de CNPJ MEI.</h2>
+              <p class="intro-copy">Confira os dados do MEI e gere o boleto do serviço contratado.</p>
+            </div>
+          </div>
+
+          <p class="private-service-note"><strong>Serviço privado:</strong> esta cobrança é referente à abertura de CNPJ MEI. Não é uma taxa governamental.</p>
+
+          <section class="summary-panel" aria-labelledby="summary-title">
+            <div class="summary-heading">
+              <div><p class="eyebrow">Serviço contratado</p><h3 id="summary-title">Abertura de CNPJ MEI</h3></div>
+            </div>
+
+            <div class="client-meta">
+              <div class="client-field"><span class="data-label">Razão social do MEI</span><strong id="legal-name">João da Silva Serviços Digitais ME</strong><span class="data-caption">Empresa contratante</span></div>
+              <div class="client-field client-cnpj"><span class="data-label">CNPJ</span><strong id="cnpj">00.000.000/0000-00</strong><span class="data-caption">Dados cadastrais</span></div>
+            </div>
+
+            <div class="summary-main">
+              <div class="tenant-block"><span class="data-label">Responsável</span><strong id="tenant-name">João da Silva</strong><span class="data-caption">Cliente do serviço</span></div>
+              <div class="amount-block"><span class="data-label">Valor do serviço</span><strong id="amount">R$ 249,90</strong><span class="data-caption">Pagamento único</span></div>
+            </div>
+            <p class="demo-data-note" id="demo-data-note">Dados demonstrativos. Informe os dados reais pela URL antes de enviar ao cliente.</p>
+
+          </section>
+
+          <section class="method-panel" id="method-panel" aria-labelledby="method-title">
+            <div class="method-heading">
+              <div class="method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M7 14h4"/></svg></div>
+              <div><p class="eyebrow">Forma de pagamento</p><h3 id="method-title">Boleto bancário</h3></div>
+            </div>
+
+            <div class="method-body" id="method-body">
+              <p>Depois de gerar, copie o código e pague pelo app do seu banco ou em uma lotérica.</p>
+              <div class="method-benefits" hidden>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 5 6v5c0 4.5 2.9 8.2 7 10 4.1-1.8 7-5.5 7-10V6z"/><path d="m9 12 2 2 4-4"/></svg> Linha digitável para copiar</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5h20v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/></svg> Imprima quando quiser</span>
+              </div>
+              <button class="primary-action" id="generate-button" type="button" aria-label="Gerar boleto do serviço"><span>Gerar boleto do serviço</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
+            </div>
+
+            <div class="boleto-result" id="boleto-result" aria-live="polite" hidden>
+              <div class="success-heading"><span class="success-icon">✓</span><div><strong>Boleto pronto</strong><span>Copie o código para pagar o serviço no app do seu banco.</span></div></div>
+              <div class="barcode-preview" aria-hidden="true"><span></span></div>
+              <div class="line-field"><span class="data-label">Código de pagamento</span><strong id="payment-line"></strong><button class="copy-button" id="copy-button" type="button"><span id="copy-icon">⧉</span><span id="copy-label">Copiar código</span></button></div>
+              <div class="result-actions"><button type="button" class="secondary-action" id="print-button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5h20v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/></svg> Imprimir</button><button type="button" class="text-action" id="back-button">Voltar</button></div>
+              <p class="demo-warning"><span>✦</span> Prévia de demonstração: conecte um emissor bancário para emitir boletos válidos.</p>
+            </div>
+          </section>
+
+          <footer class="payment-footer" aria-label="Informações do portal">
+            <div class="footer-left"><span>© 2026 Núcleo MEI Serviços Empresariais</span><span aria-hidden="true">·</span><span>Ambiente seguro</span></div>
+            <a href="mailto:atendimento@nucleomei.com.br">Precisa de ajuda?</a>
+          </footer>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <script>
+    /*
+     * O JavaScript lê e valida os dados da URL.
+     * Exemplos:
+     *   index.html?nome=Joao%20da%20Silva&razao=Joao%20da%20Silva%20Servicos%20Digitais%20ME&cnpj=00.000.000%2F0000-00&valor=249,90
+     *   index.html?inquilino=Maria&razao=Maria%20Alimentos%20ME&cnpj=11.111.111%2F0001-11&valor=R$%20199,90
+     */
+
+    (function () {
+      "use strict";
+
+      const params = new URLSearchParams(window.location.search);
+      const rawName = (params.get("nome") || params.get("inquilino") || "").trim();
+      const rawLegalName = (params.get("razao") || params.get("razaoSocial") || "").trim();
+      const rawCnpj = (params.get("cnpj") || "").trim();
+      const rawAmount = (params.get("valor") || "").trim();
+
+      const demoName = "João da Silva";
+      const demoLegalName = "João da Silva Serviços Digitais ME";
+      const demoCnpj = "00.000.000/0000-00";
+      const demoAmount = 249.90;
+      const tenantName = (rawName || demoName).slice(0, 80);
+      const legalName = (rawLegalName || demoLegalName).slice(0, 120);
+      const cnpj = formatCnpj(rawCnpj || demoCnpj);
+      const amount = parseBrazilianAmount(rawAmount) || demoAmount;
+      const hasName = rawName.length > 1;
+      const hasAmount = parseBrazilianAmount(rawAmount) > 0;
+      const hasClientData = rawLegalName.length > 1 && rawCnpj.length > 0;
+      const paymentReady = hasName && hasAmount;
+
+      const tenantNameElement = document.getElementById("tenant-name");
+      const legalNameElement = document.getElementById("legal-name");
+      const cnpjElement = document.getElementById("cnpj");
+      const demoDataNote = document.getElementById("demo-data-note");
+      const amountElement = document.getElementById("amount");
+      const greetingElement = document.getElementById("greeting");
+      const generateButton = document.getElementById("generate-button");
+      const methodBody = document.getElementById("method-body");
+      const boletoResult = document.getElementById("boleto-result");
+      const methodPanel = document.getElementById("method-panel");
+      const paymentLineElement = document.getElementById("payment-line");
+      const copyButton = document.getElementById("copy-button");
+      const copyLabel = document.getElementById("copy-label");
+      const printButton = document.getElementById("print-button");
+      const backButton = document.getElementById("back-button");
+
+      tenantNameElement.textContent = tenantName;
+      legalNameElement.textContent = legalName;
+      cnpjElement.textContent = cnpj;
+      amountElement.textContent = formatCurrency(amount);
+      demoDataNote.hidden = hasClientData && hasName && hasAmount;
+      greetingElement.textContent = "Abertura de CNPJ MEI.";
+
+      if (!paymentReady) {
+        generateButton.disabled = true;
+      }
+
+      function parseBrazilianAmount(value) {
+        let normalized = value.replace(/R\$\s?/gi, "").replace(/\s/g, "");
+        if (!normalized) return 0;
+
+        if (normalized.includes(",")) {
+          normalized = normalized.replace(/\./g, "").replace(",", ".");
+        } else if (/^\d{1,3}\.\d{3}$/.test(normalized)) {
+          normalized = normalized.replace(".", "");
+        }
+
+        const parsed = Number(normalized.replace(/[^\d.-]/g, ""));
+        return Number.isFinite(parsed) && parsed > 0 ? parsed : 0;
+      }
+
+      function formatCurrency(value) {
+        return new Intl.NumberFormat("pt-BR", {
+          style: "currency",
+          currency: "BRL"
+        }).format(value);
+      }
+
+      function formatCnpj(value) {
+        const digits = value.replace(/\D/g, "").slice(0, 14);
+        if (digits.length !== 14) return value.slice(0, 24);
+        return digits.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
+      }
+
+      function buildDemoLine(value) {
+        const cents = Math.round(value * 100).toString().padStart(10, "0");
+        const checksum = (Math.round(value * 17) % 97).toString().padStart(2, "0");
+        return "00190.00009 01000.000004 00000.000000 0 " + cents.slice(0, 5) + checksum + cents.slice(5);
+      }
+
+      generateButton.addEventListener("click", function () {
+        if (!paymentReady) return;
+
+        paymentLineElement.textContent = buildDemoLine(amount);
+        methodBody.hidden = true;
+        boletoResult.hidden = false;
+        methodPanel.classList.add("is-generated");
+      });
+
+      copyButton.addEventListener("click", async function () {
+        const line = paymentLineElement.textContent.replace(/\s/g, "");
+        try {
+          await navigator.clipboard.writeText(line);
+          copyLabel.textContent = "Copiado";
+          window.setTimeout(function () { copyLabel.textContent = "Copiar"; }, 2200);
+        } catch (error) {
+          copyLabel.textContent = "Selecione";
+        }
+      });
+
+      printButton.addEventListener("click", function () {
+        window.print();
+      });
+
+      backButton.addEventListener("click", function () {
+        boletoResult.hidden = true;
+        methodBody.hidden = false;
+        methodPanel.classList.remove("is-generated");
+      });
+    })();
+  </script>
+</body>
+</html>
